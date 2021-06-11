@@ -1,0 +1,15 @@
+.content {
+    grid-area: c;
+    background-color:darkgray;
+}
+
+.imgContent {
+    margin: 0 auto;
+    width: 400px;
+
+}
+
+.imgUsers {
+
+    width: 150px;
+}
