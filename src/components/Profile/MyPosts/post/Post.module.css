@@ -1,12 +1,14 @@
 
 .item {
-    color:black;
+    color: black;
 }
+
 .item img {
     height: 80px;
     width: 80px;
     border-radius: 50px;
 }
+
 .like {
     color: greenyellow;
 }
