@@ -2,10 +2,10 @@
 let state = {
     profilePage: {
         posts: [
-            {id: 1, name: "Hey, hove old do?", numberLike: 55},
-            {id: 2, name: "Hey,like ", numberLike: 24},
-            {id: 2, name: "Blabla ", numberLike: 234},
-            {id: 2, name: "Dada", numberLike: 15}
+            {id: 1, message: "Hey, hove old do?", numberLike: 55},
+            {id: 2, message: "Hey,like ", numberLike: 24},
+            {id: 3, message: "Blabla ", numberLike: 234},
+            {id: 4, message: "Dada", numberLike: 15}
         ]
     },
     MessagesPage: {
@@ -18,15 +18,25 @@ let state = {
             {id: 6, name: "Andrey"}
         ],
         messagesData: [
-            {id: 1, name: "Hi"},
-            {id: 2, name: "How is your likes?"},
-            {id: 3, name: "Hi, how are you"},
-            {id: 4, name: "Like your brother"},
-            {id: 5, name: "Yo"},
-            {id: 6, name: "Yo"}
+            {id: 1, message: "Hi"},
+            {id: 2, message: "How is your likes?"},
+            {id: 3, message: "Hi, how are you"},
+            {id: 4, message: "Like your brother"},
+            {id: 5, message: "Yo"},
+            {id: 6, message: "Yo"}
         ]
     }
 
+}
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        numberLike: 0
+    };
+    state.profilePage.posts.push(newPost);
 }
 
 export default state;
