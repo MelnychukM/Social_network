@@ -6,12 +6,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 
-let callSubscriber = (state) => {
+let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <App state={state}
-                 addPost={store.addPost.bind(store)}
-                 updateNewPostText={store.updateNewPostText.bind(store)}/>
+                 dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -19,8 +18,8 @@ let callSubscriber = (state) => {
 
 
 
-callSubscriber(store.getState());
-store.subscride(callSubscriber);
+rerenderEntireTree(store.getState());
+store.subscride(rerenderEntireTree);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -4,7 +4,8 @@ let store = {
             posts: [
                 {id: 1, message: "Hey, hove old do?", numberLike: 55},
                 {id: 2, message: "Hey,like ", numberLike: 24},
-                {id: 3, message: "Blabla ", numberLike: 234},
+                {id: 3, message: "Bilabial ", numberLike: 234},
+                {id: 4, message: "Bilabial ", numberLike: 234},
 
             ],
             newPostText: "it_kamasutra.com"
@@ -29,12 +30,17 @@ let store = {
         }
 
     },
+    _callSubscriber() {
+        console.log('State changed');
+    },
+
     getState() {
         return this._state;
     },
-    _callSubscriber() {
-        console.log('State cganged');
+    subscride(observer) {
+        this._callSubscriber = observer;
     },
+
     addPost() {
 
 
@@ -45,16 +51,30 @@ let store = {
         };
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = '';
-        this._callSubscriber();
+        this._callSubscriber(this._state);
     },
     updateNewPostText(newText) {
 
         this._state.profilePage.newPostText = newText;
-        this._callSubscriber();
+        this._callSubscriber(this._state);
     },
-    subscride(observer) {
-        this._callSubscriber = observer;
+
+    dispatch(action) {
+      if (action.type === "ADD-POST") {
+          let newPost = {
+              id: 5,
+              message: this._state.profilePage.newPostText,
+              numberLike: 0
+          };
+          this._state.profilePage.posts.push(newPost);
+          this._state.profilePage.newPostText = '';
+          this._callSubscriber(this._state);
+      } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+          this._state.profilePage.newPostText = action.newText;
+          this._callSubscriber(this._state);
+      }
     }
+
 }
 
 
