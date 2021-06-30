@@ -24,8 +24,7 @@ const App = (props) => {
                                dispatch={props.dispatch}/>}/>
                     <Route path="/dialogs"
                            render={() => <Dialogs
-                               dialogsData={props.state.MessagesPage.dialogsData}
-                               messagesData={props.state.MessagesPage.messagesData}/>}/>
+                                store={props.store}/>}/>
                     <Route path="/news"
                            render={() => <News/>}/>
                     <Route path="/music"
