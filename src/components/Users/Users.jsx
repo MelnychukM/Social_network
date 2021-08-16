@@ -4,6 +4,9 @@ import * as axios from 'axios'
 import  userPhoto from '../../assets/users.png'
 
 let Users = (props) => {
+    let getUsers = () => {
+
+    }
 
     if (props.users.length === 0) {
 
@@ -15,36 +18,40 @@ let Users = (props) => {
 
     }
 
-    return (
-        props.users.map(u =>
-            <div key={u.id}>
-                <div>
+    return <div>
+        <button onClick={getUsers}>Get Users</button>
+        {
+            props.users.map(u =>
+                <div key={u.id}>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.userPhoto}/>
+                        <div>
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto} alt=""
+                                 className={styles.userPhoto}/>
+                        </div>
+                        <div>
+                            {u.followed
+                                ? <button onClick={() => {
+                                    props.unfollow(u.id)
+                                }}>Unfollow</button>
+                                : <button onClick={() => {
+                                    props.follow(u.id)
+                                }}>Follow</button>}
+                        </div>
                     </div>
                     <div>
-                        {u.followed
-                            ? <button onClick={() => {
-                                props.unfollow(u.id)
-                            }}>Unfollow</button>
-                            : <button onClick={() => {
-                                props.follow(u.id)
-                            }}>Follow</button>}
+                        <div>
+                            <div>{u.name}</div>
+                            <div>{u.status}</div>
+                        </div>
+                        <div>
+                            <div>{"u.lacation.country"}</div>
+                            <div>{"u.lacation.city"}</div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </div>
-                    <div>
-                        <div>{"u.lacation.country"}</div>
-                        <div>{"u.lacation.city"}</div>
-                    </div>
-                </div>
-            </div>
-        )
-    )
+            )
+        }
+    </div>
 }
 
 export default Users;
