@@ -1,19 +1,33 @@
 import React from "react";
 import "../Profile.module.css";
 import s from "../Profile.module.css";
+import Preloader from "../../common/Preloader/Preloader";
+import Logotype from "../Logo/logotype.png"
 
 const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader/>
+    }
     return (
         <div>
-            <div>
-                <img className={s.imgContent}
-                     src="https://i.pinimg.com/originals/66/ce/ed/66ceed7ad75c94867c24d8601bf28b4c.jpg"
-                     alt=""/>
+
+            <div className={s.titleLogotype}>
+                <img src={Logotype} alt=""/>
             </div>
-            <div>
-                <img className={s.imgUsers}
-                     src="https://media.istockphoto.com/photos/colored-powder-explosion-abstract-closeup-dust-on-backdrop-colorful-picture-id1072093690?k=6&m=1072093690&s=612x612&w=0&h=Eyk67XBt4sr3Bk1MubM6dHpvEVNICX4L7FumWhcTwuY="
-                     alt=""/>
+            <div className={s.gridProfile}>
+                <div className={s.ava}>
+                    <img src={props.profile.photos.large} alt=""/>
+                </div>
+                <div className={s.gridProfileInfo}>
+                    <div className={s.fullName}>
+                        <div>FullName </div>
+                        <div>{props.profile.fullName}</div>
+                    </div>
+                    <div className={s.aboutMe}>
+                        <div>About me:</div>
+                        <div>{props.profile.aboutMe}</div>
+                    </div>
+                </div>
             </div>
         </div>
     );
