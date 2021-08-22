@@ -1,7 +1,6 @@
 .content {
     grid-area: c;
     background-color: darkgray;
-
 }
 
 .gridProfile {
@@ -10,19 +9,29 @@
     gap: 25px;
 }
 
-.titleLogotype {
+.profileHeader {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    background-color: #4c63ca;
+}
+
+.logotype {
     width: 100%;
     max-width:900px;
     height: 100px;
-    background-color: #4c63ca;
-
 }
 
-.titleLogotype img {
+.logotype img {
     margin-left: 5px;
     margin-top: 5px;
     width: 100px;
     height: 100px;
+}
+
+.titleLogotype {
+    font-size: 42px;
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
 .ava {

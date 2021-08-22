@@ -1,6 +1,30 @@
 .header {
     grid-area: h;
-    background-color: black;
+}
+
+.profileHeader {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    background-color: #5672f1;
+}
+
+.logotype {
+    width: 100%;
+    max-width:900px;
+    height: 100px;
+}
+
+.logotype img {
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.titleLogotype {
+    font-size: 42px;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 
 .header img {
