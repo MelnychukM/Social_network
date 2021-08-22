@@ -1,9 +1,9 @@
 import React from "react";
 import c from "./Header.module.css"
-
 import Logotype from "../Profile/Logo/logotype.png";
+import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={c.header}>
             <div className={c.profileHeader}>
@@ -13,7 +13,14 @@ const Header = () => {
                 <div className={c.titleLogotype}>
                     Messenger Network
                 </div>
+                <div className={c.loginBlock}>
+
+                        {props.isAuth ? props.login : <NavLink to={'/login'} >Login</NavLink>  }
+
+
+                </div>
             </div>
+
         </header>
     );
 }
