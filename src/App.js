@@ -11,12 +11,11 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 
 
-
 const App = (props) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <HeaderContainer />
+                <HeaderContainer/>
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route path="/profile/:userId?"
@@ -28,7 +27,7 @@ const App = (props) => {
                     <Route path="/music"
                            render={() => <Music/>}/>
                     <Route path="/users"
-                           render={() => <UsersContainer/>} />
+                           render={() => <UsersContainer/>}/>
                     <Route path="/settings"
                            render={() => <Settings/>}/>
                 </div>
