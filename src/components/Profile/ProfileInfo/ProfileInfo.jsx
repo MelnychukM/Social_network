@@ -2,7 +2,7 @@ import React from "react";
 import "../Profile.module.css";
 import s from "../Profile.module.css";
 import Preloader from "../../common/Preloader/Preloader";
-
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -23,6 +23,7 @@ const ProfileInfo = (props) => {
                     <img src={props.profile.photos.large} alt=""/>
                 </div>
                 <div className={s.gridProfileInfo}>
+                    <ProfileStatus status={"Hello my friends"}/>
                     <div className={s.fullName}>
                         <div>FullName</div>
                         <div>{props.profile.fullName}</div>
