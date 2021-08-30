@@ -1,7 +1,6 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
@@ -14,7 +13,6 @@ let initialState = {
         {id: 4, message: "Bilabial ", numberLike: 234},
 
     ],
-    newPostText: "it_kamasutra.com",
     profile: null,
     status: ""
 };
@@ -24,7 +22,7 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 5,
-                messages: state.newPostText,
+                messages: action.newPostText,
                 numberLike: 0
             };
             return {
@@ -33,17 +31,12 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: ''
             };
 
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newText
-            };
-            case SET_USER_PROFILE:
+        case SET_USER_PROFILE:
             return {
                 ...state,
                 profile: action.profile
             };
-            case SET_STATUS:
+        case SET_STATUS:
             return {
                 ...state,
                 status: action.status
@@ -53,9 +46,9 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const setUserProfile = (profile) => ({type:SET_USER_PROFILE, profile})
-export const setStatus = (status) => ({type:SET_STATUS, status})
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const setStatus = (status) => ({type: SET_STATUS, status})
 
 export const getUserProfile = (userId) => (dispatch) => {
     profileAPI.getProfile(userId)
@@ -79,12 +72,6 @@ export const updateStatus = (status) => (dispatch) => {
             }
         });
 }
-
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT, newText: text
-})
-
-
 
 
 export default profileReducer;
