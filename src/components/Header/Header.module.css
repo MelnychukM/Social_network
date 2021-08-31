@@ -4,7 +4,7 @@
 
 .profileHeader {
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 100px 1fr 150px;
     background-color: #5672f1;
 }
 
@@ -32,5 +32,5 @@
 }
 
 .loginBlock {
-
+    text-align: right;
 }

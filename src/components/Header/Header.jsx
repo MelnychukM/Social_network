@@ -14,7 +14,10 @@ const Header = (props) => {
                     Messenger Network
                 </div>
                 <div className={c.loginBlock}>
-                        {props.isAuth ? props.login : <NavLink to={'/login'} >Login</NavLink>  }
+                        {props.isAuth
+                            ? <div>{props.login} - <button onClick={props.logout}>Log out</button> </div>
+                            : <NavLink to={'/login'} >Login</NavLink>
+                        }
                 </div>
             </div>
 
