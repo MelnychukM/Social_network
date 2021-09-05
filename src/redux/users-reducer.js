@@ -1,6 +1,5 @@
-import {act} from "@testing-library/react";
-import {userAPI} from "../api/api";
 
+import {userAPI} from "../api/api";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -76,7 +75,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 followingIsProgress: action.isFetching
                     ? [...state.followingIsProgress, action.userId]
-                    : state.followingIsProgress.filter(id => id != action.userId)
+                    : state.followingIsProgress.filter(id => id !== action.userId)
             }
         }
 

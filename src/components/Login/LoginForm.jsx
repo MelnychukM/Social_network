@@ -1,9 +1,9 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
+import {required} from "../../utils/validators/validators";
 import s from "./../common/FormsControls/FormsControls.module.css";
-let maxLength30 = maxLengthCreator(30)
+
 
 let LoginForm = (props) => {
     return <form onSubmit={props.handleSubmit}>

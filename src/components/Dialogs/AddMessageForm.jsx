@@ -6,7 +6,8 @@ import {maxLengthCreator, required} from "../../utils/validators/validators";
 const maxLength50 = maxLengthCreator(50)
 
 let AddMessageForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
+    return (
+    <form onSubmit={props.handleSubmit}>
         <div>
             <Field placeholder="Enter your message" name="newMessageBody" component={Textarea}
             validate={[required, maxLength50]} />
@@ -15,7 +16,7 @@ let AddMessageForm = (props) => {
             <button>Send</button>
         </div>
     </form>
-}
+)}
 
 AddMessageForm = reduxForm({form:'dialogs-add-message-form'})(AddMessageForm);
 

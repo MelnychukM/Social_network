@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -16,15 +16,16 @@ import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 
 
+
 class App extends React.Component {
     componentDidMount() {
         this.props.initializedApp()
     }
 
     render() {
-        // if (!this.props.initialized){
-        //     return <Preloader/>
-        // }
+        if (!this.props.initialized){
+            return <Preloader/>
+        }
         return (
             <BrowserRouter>
                 <div className="app-wrapper">
