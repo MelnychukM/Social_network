@@ -10,11 +10,11 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-
+import store from "./redux/redux-store";
 
 
 class App extends React.Component {
@@ -59,9 +59,16 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default compose(
+let AppContainer = compose(
     connect(mapStateToProps, {initializedApp})
 )(App)
 
+const SocialJSApp = (props) => {
+    return <React.StrictMode>
+        <Provider store={store}>
+            <AppContainer />
+        </Provider>
+    </React.StrictMode>
+}
 
-
+export default SocialJSApp;
