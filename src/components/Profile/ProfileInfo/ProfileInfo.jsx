@@ -3,16 +3,24 @@ import "../Profile.module.css";
 import s from "../Profile.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import userPhoto from "../../../assets/users.png"
 
-const ProfileInfo = ({profile, updateStatus,status}) => {
+const ProfileInfo = ({profile, updateStatus,status,isOwner,savePhoto}) => {
     if (!profile) {
         return <Preloader/>
     }
+
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0]);
+        }
+    }
+
     return (
         <div>
             <div className={s.profileHeader}>
                 <div className={s.ava}>
-                    <img src={profile.photos.small} alt="small-photo"/>
+                    <img src={profile.photos.small || userPhoto} className={s.smallPhoto} alt="small-photo"/>
                 </div>
                 <div className={s.titleLogotype}>
                     <div>{profile.fullName}</div>
@@ -20,7 +28,8 @@ const ProfileInfo = ({profile, updateStatus,status}) => {
             </div>
             <div className={s.gridProfile}>
                 <div className={s.ava}>
-                    <img src={profile.photos.large} alt="large-photo"/>
+                    <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt="large-photo"/>
+                    {isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
                 </div>
                 <div className={s.gridProfileInfo}>
                     <ProfileStatus status={status} updateStatus={updateStatus}/>

@@ -41,13 +41,13 @@ class App extends React.Component {
                         <Route path="/dialogs"
                                render={withSuspense(DialogsContainer)}/>
                         <Route path="/news"
-                               render={() => <News/>}/>
+                               render={withSuspense(News)}/>
                         <Route path="/music"
-                               render={() => <Music/>}/>
+                               render={withSuspense(Music)}/>
                         <Route path="/users"
                                render={() => <UsersContainer/>}/>
                         <Route path="/settings"
-                               render={() => <Settings/>}/>
+                               render={withSuspense(Settings)}/>
                         <Route path="/login"
                                render={() => <LoginPage/>}/>
 

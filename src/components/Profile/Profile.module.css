@@ -39,6 +39,14 @@
     margin-top: 10px;
 }
 
+.smallPhoto {
+    width: 50px;
+}
+
+.mainPhoto {
+    width: 300px;
+}
+
 .gridProfileInfo {
     display: grid;
     grid-template-rows: 50px;
