@@ -49,37 +49,19 @@
 
 .gridProfileInfo {
     display: grid;
-    grid-template-rows: 50px;
-}
-
-
-.fullName {
-    display: flex;
+    grid-template-rows: 50px 50px 50px 50px;
     margin-top: 10px;
 }
 
-.fullName div:nth-child(1) {
-    font-size: 25px;
-    font-weight: bold;
+.lookingForJob {
+    width: 500px;
 }
 
-.fullName div:nth-child(2) {
+.fontSize {
     font-size: 20px;
-    margin-left: 10px;
-    margin-top: 5px;
 }
 
-.aboutMe {
-    display: flex;
-    flex-direction: column;
+.contacts {
+    margin-left: 20px;
 }
 
-.aboutMe div:nth-child(1) {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.aboutMe div:nth-child(2) {
-    font-size: 20px;
-    margin-top: 5px;
-}
